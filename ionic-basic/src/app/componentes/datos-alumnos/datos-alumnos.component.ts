@@ -14,5 +14,6 @@ export class DatosAlumnoComponent implements OnInit {
 
   constructor() { }
 
-  ngOnIni
+  ngOnInit() {}
 
+}
