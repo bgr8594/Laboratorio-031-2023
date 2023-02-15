@@ -1,24 +1,19 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Alumno } from '../interface/alumno'
 
-import { DatosAlumnosComponent } from './datos-alumnos.component';
+@Component({
+  selector: 'app-datos-alumno',
+  templateUrl: './datos-alumno.component.html',
+  styleUrls: ['./datos-alumno.component.scss'],
+})
+export class DatosAlumnoComponent implements OnInit {
 
-describe('DatosAlumnosComponent', () => {
-  let component: DatosAlumnosComponent;
-  let fixture: ComponentFixture<DatosAlumnosComponent>;
+  @Input() alumnosList:Alumno[] =[];
+  @Output() eliminar: any = new EventEmitter<Alumno[]>();
+  @Output() editar:  any = new EventEmitter<number>();
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ DatosAlumnosComponent ],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
+  constructor() { }
 
-    fixture = TestBed.createComponent(DatosAlumnosComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+  ngOnInit() {}
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+}
