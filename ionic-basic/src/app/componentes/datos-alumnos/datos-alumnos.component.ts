@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Alumno } from '../interface/Alumno2'
+import { Alumno } from '../interface/alumno'
 
 @Component({
   selector: 'app-datos-alumno',
