@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import from '../interface/alumno'
+import { Alumno } from '../interface/alumno'
 
 @Component({
   selector: 'app-datos-alumno',
@@ -14,7 +14,5 @@ export class DatosAlumnoComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
-
-}
+  ngOnIni
 
