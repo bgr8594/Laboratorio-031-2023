@@ -1,14 +1,13 @@
-
 import { Component, OnInit } from '@angular/core';
-import { Gasto } from '../Interface/gasto';
-import { GastoService } from '../service/Gasto.service';
+import { Gasto } from '../Gasto';
+import { GastoService } from '../Gasto.service';
 
 @Component({
   selector: 'app-presupuesto',
   templateUrl: './presupuesto.page.html',
   styleUrls: ['./presupuesto.page.scss'],
 })
-export class Presupuesto implements OnInit {
+export class PresupuestoPage implements OnInit {
   public gastos: string[]=['Directos','Fijos', 'Variables'];
   public selectedValue: any;
   public monto: number=0;

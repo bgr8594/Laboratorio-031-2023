@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Gasto } from '../Interface/gasto';
+import { Gasto } from 'C:/Users/diego/OneDrive/Documentos/GitHub/Laboratorio-031-2023/Ionic-basic/src/app/Gasto';
 
 @Injectable({
   providedIn: 'root'
