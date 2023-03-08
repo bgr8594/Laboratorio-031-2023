@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Gasto } from 'C:/Users/diego/OneDrive/Documentos/GitHub/Laboratorio-031-2023/Ionic-basic/src/app/Gasto';
+import { Gasto } from '../interface/gasto';
 
 @Injectable({
   providedIn: 'root'
 })
-// Servicio de gastos para operaciones alta, baja, cambios
+
 export class GastoService {
 
   gastos: Gasto[]=[];
@@ -22,7 +22,7 @@ export class GastoService {
 
   borrarGasto(gasto: Gasto){
     this.gastos = 
-    tthis.gastos.filter((g)=>g.id!= (gasto.id!=null?gasto.id:0));
+    this.gastos.filter((g)=>g.id!= (gasto.id!=null?gasto.id:0));
   }
 
   getGastos(){
