@@ -1,0 +1,31 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class StarWarsService {
+  private objetoSubject = new BehaviorSubject<any>(null);
+  private arregloSubject = new BehaviorSubject<any[]>([]);
+
+  constructor(private http: HttpClient) { }
+
+  public getObjetoSubject() {
+    return this.objetoSubject.asObservable();
+  }
+
+  public getArregloSubject() {
+    return this.arregloSubject.asObservable();
+  }
+
+  public consumirWebService() {
+    this.http.get<any>('https://swapi.dev/api/people/').subscribe(
+      data => {
+        this.objetoSubject.next(data.results[0]);
+        this.arregloSubject.next(data.results);
+      },
+      error => console.log(error)
+    );
+  }
+}
