@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Receta } from '../interface/receta';
@@ -20,6 +21,6 @@ export class DetalleRecetaPage implements OnInit {
       this.receta = this.recetaService.getReceta(this.idReceta);
     });
   }
-
+  
 
 }
