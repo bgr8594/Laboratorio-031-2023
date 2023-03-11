@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RecetaService } from '../service/receta.service';
+import { Receta } from '../interface/receta';
 
 @Component({
   selector: 'app-receta',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecetaPage implements OnInit {
 
-  constructor() { }
+  recetas: Receta[] = [] ;
+
+  constructor(private recetaService: RecetaService) { }
 
   ngOnInit() {
+    this.recetas = this.recetaService.getRecetas();
   }
 
 }
