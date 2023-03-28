@@ -13,4 +13,4 @@ import { FloatMenuComponent } from './componentes/float-menu.component';
   providers: [HttpClientModule, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

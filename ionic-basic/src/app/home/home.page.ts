@@ -8,9 +8,9 @@ import { MenuServiceService } from '../service/menu-service.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage  implements OnInit{
 
-  isLoged: any = false;
+  isLoged : any = false;
 
   constructor(
     private authService: AutService,
@@ -18,25 +18,25 @@ export class HomePage implements OnInit {
     private menuService: MenuServiceService
 
   ) {
-    onAuthStateChanged(this.authService.getStateAuth(), user => {
-      if (user != null && user != undefined) {
-        this.isLoged = true;
-      }
-    });
+      onAuthStateChanged(this.authService.getStateAuth(), user=>{
+       if(user!=null && user != undefined){
+         this.isLoged = true;
+       }
+      });
   }
 
   ngOnInit() {
 
 
   }
-  onLogout() {
-    signOut(this.authService.getStateAuth()).then(response => {
-      console.log("Logout!");
-      this.menuService.setTitle('login');
-      this.router.navigateByUrl('/login');
-    }).catch(error => {
+  onLogout(){
+      signOut(this.authService.getStateAuth()).then(response=>{
+        console.log("Logout!");
+        this.menuService.setTitle('login');
+        this.router.navigateByUrl('/login');
+      }).catch(error=>{
 
-    });
-  }
+      });
+    }
 
 }

@@ -2,18 +2,18 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class MenuServiceService {
-    private objectSource = new BehaviorSubject<string>("");
-    $getTitleMenu = this.objectSource.asObservable();
+   private objectSource = new BehaviorSubject<string>("");
+   $getTitleMenu = this.objectSource.asObservable();
 
-    constructor() {
+  constructor() {
 
-    }
+  }
 
-    setTitle(data: any) {
-        this.objectSource.next(data);
-    }
+  setTitle(data: any){
+    this.objectSource.next(data);
+  }
 
 }
