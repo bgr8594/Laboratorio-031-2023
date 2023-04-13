@@ -1,0 +1,7 @@
+<h2>Recetas</h2>
+
+<ul>
+  <li *ngFor="let recipe of recipes" (click)="goToRecipeDetail(recipe.id)">
+    {{ recipe.title }}
+  </li>
+</ul>
