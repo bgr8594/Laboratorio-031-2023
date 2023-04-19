@@ -1,0 +1,39 @@
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { StarWarsService } from '../star-wars.service';
+import { Subscription } from 'rxjs';
+
+@Component({
+  selector: 'app-receptor',
+  templateUrl: './receptor.component.html',
+  styleUrls: ['./receptor.component.css']
+})
+export class ReceptorComponent implements OnInit, OnDestroy {
+  objeto: any;
+  arreglo: any[];
+  objetoSubscription: Subscription;
+  arregloSubscription: Subscription;
+
+  constructor(private starWarsService: StarWarsService) { }
+
+  ngOnInit(): void {
+    this.objetoSubscription = this.starWarsService.getObjetoSubject().subscribe(
+      data => {
+        this.objeto = data;
+      }
+    );
+
+    this.arregloSubscription = this.starWarsService.getArregloSubject().subscribe(
+      data => {
+        this.arreglo = data;
+      }
+    );
+
+    this.starWarsService.consumirWebService();
+  }
+
+  ngOnDestroy(): void {
+    this.objetoSubscription.unsubscribe();
+    this.arregloSubscription.unsubscribe();
+  }
+
+}
