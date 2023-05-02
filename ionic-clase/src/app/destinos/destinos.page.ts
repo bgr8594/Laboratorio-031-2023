@@ -13,6 +13,8 @@ export class DestinosPage implements OnInit {
   lugar: Lugar = new Lugar();
   destinos: any[] = [];
   ionicForm: any;
+  estado: string ="Alta destino";
+  editando: boolean= false;
   
   constructor(private authService: AutService,
     private formBuilder: FormBuilder) { }
@@ -39,7 +41,24 @@ export class DestinosPage implements OnInit {
   submitForm(){
     if(this.ionicForm.valid){
       this.lugar.nombre = this.ionicForm.get('nombre').value;
-      this.altaLugar();
+      if(!this.editando){
+        this.authService.altaLugar(this.lugar).then((e:any)=>{
+          this.ionicForm.reset();
+          this.authService.getLugares(this.destinos);
+        }).catch(e=>{
+          console.error(e);
+        });        
+      } else{
+        this.authService.updateLugares(this.lugar.id, this.lugar).then(e=>{
+          this.editando= false;
+          this.estado = "Alta destino";
+          this.lugar = new Lugar();
+          this.ionicForm.reset();
+          this.authService.getLugares(this.destinos);
+        }).catch(e=>{
+          console.error(e);
+        });
+      }
     }
   }
 
@@ -53,6 +72,30 @@ export class DestinosPage implements OnInit {
     return !this.ionicForm.controls[controlName].valid &&
       this.ionicForm.controls[controlName].hasError(errorName) &&
       this.ionicForm.controls[controlName].touched;
-  }  
+  } 
+  
+  editarLugar(id: any, lugar: any) {
+    this.editando = true;
+    this.lugar = lugar;
+    this.estado = "Editar el lugar";
+    this.ionicForm.get('nombre').setValue(lugar.nombre);
+  }
+
+  eliminarLugar(id: any) {
+    this.estado = "Alta destino";
+    this.editando = false;
+    this.ionicForm.reset();
+    this.authService.deleteLugar(id).then(response=>{
+      this.authService.getLugares(this.destinos);     
+    }).catch(error=>{});
+
+  }
+
+  cancelarEdicion(){
+    this.estado = "Alta destino";
+    this.editando = false;
+    this.ionicForm.reset();
+    this.lugar = new Lugar();
+  }
 
 }
