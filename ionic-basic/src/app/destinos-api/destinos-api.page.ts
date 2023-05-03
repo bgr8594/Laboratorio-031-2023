@@ -10,7 +10,7 @@ import { ApiService } from '../service/api.service';
 })
 export class DestinosApiPage implements OnInit {
 
-  lugar: any;
+  lugar: Lugar = new Lugar();
   destinos: any[] = [];
   ionicForm: any;
   estado: string ="Alta destino";
