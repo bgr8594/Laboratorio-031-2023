@@ -86,6 +86,8 @@ export class DestinosPage implements OnInit {
     this.lugar = lugar;
     this.estado = "Editar el lugar";
     this.ionicForm.get('nombre').setValue(lugar.nombre);
+    this.latitud = lugar.latitud;
+    this.longitud = lugar.longitud;
   }
 
   eliminarLugar(id: any) {
