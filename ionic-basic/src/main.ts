@@ -10,3 +10,10 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
+
+  /* mapInit Window error */
+  declare global {
+    interface Window {
+      mapInit: any;
+    }
+  }

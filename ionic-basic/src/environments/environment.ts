@@ -11,8 +11,11 @@ export const environment = {
   storageBucket: "login-pia.appspot.com",
   messagingSenderId: "619669098434",
   appId: "1:619669098434:web:3eb4fef98e0b0fdcdc905b"
-  }
+  },
+  apiKeyMaps: 'AIzaSyDa2ba8bnGz9I2nUNePAk6SxUwWO4neIBE'
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file
