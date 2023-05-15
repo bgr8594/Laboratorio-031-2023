@@ -46,7 +46,8 @@ export class AutService {
  async altaLugar(lugar: Lugar){
   const lugarTemp: any ={
     nombre:lugar.nombre,
-    ubicacion: {longitud:'', latitud:''}
+    latitud: lugar.latitud,
+    longitud: lugar.longitud
   };
   const docRef = await addDoc(collection(this.db,'lugar'), lugarTemp);
   console.log("Documento escrito con id: "+docRef.id);
@@ -60,6 +61,8 @@ async getLugares(destinos: Lugar[]) {
         let lugar: Lugar = new Lugar();
         lugar.nombre = data.nombre;
         lugar.id = doc.id;
+        lugar.latitud = data.latitud;
+        lugar.longitud = data.longitud;
         console.log(doc.id);
         destinos.push(lugar);
     });
@@ -72,7 +75,8 @@ async getLugares(destinos: Lugar[]) {
   updateLugares(id: any, lugar: any): Promise<any>{
     const docRef = doc(this.db, 'lugar', id);
     const lugarAux = {nombre: lugar.nombre,
-      ubicacion:{latitud:'', longitud:''}
+      latitud: lugar.latitud,
+      longitud: lugar.longitud
     };
 
     return setDoc(docRef, lugarAux);
