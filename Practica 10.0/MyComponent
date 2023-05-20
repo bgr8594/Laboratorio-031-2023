@@ -1,0 +1,16 @@
+import { Component } from '@angular/core';
+import { ApiService } from 'ruta/al/api.service';
+
+@Component({
+  selector: 'app-my-component',
+  template: '<button (click)="getData()">Obtener datos</button>',
+})
+export class MyComponent {
+  constructor(private apiService: ApiService) {}
+
+  getData() {
+    this.apiService.get('endpoint').subscribe((data) => {
+      console.log(data);
+    });
+  }
+}

@@ -1,0 +1,32 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+  private baseUrl = 'https://api.example.com'; 
+
+  constructor(private http: HttpClient) {}
+
+  public post<T>(endpoint: string, data: any): Observable<T> {
+    const url = `${this.baseUrl}/${endpoint}`;
+    return this.http.post<T>(url, data);
+  }
+
+  public get<T>(endpoint: string): Observable<T> {
+    const url = `${this.baseUrl}/${endpoint}`;
+    return this.http.get<T>(url);
+  }
+
+  public delete<T>(endpoint: string): Observable<T> {
+    const url = `${this.baseUrl}/${endpoint}`;
+    return this.http.delete<T>(url);
+  }
+
+  public patch<T>(endpoint: string, data: any): Observable<T> {
+    const url = `${this.baseUrl}/${endpoint}`;
+    return this.http.patch<T>(url, data);
+  }
+}

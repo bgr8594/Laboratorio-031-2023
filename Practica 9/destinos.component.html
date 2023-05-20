@@ -1,0 +1,13 @@
+<ul>
+    <li *ngFor="let lugar of lugares">
+      {{ lugar.nombre }}
+      <button (click)="editarLugar(lugar)">Editar</button>
+      <button (click)="eliminarLugar(lugar)">Eliminar</button>
+    </li>
+  </ul>
+  
+  <div *ngIf="lugarSeleccionado">
+    <input [(ngModel)]="lugarSeleccionado.nombre" placeholder="Nombre del destino" />
+    <button (click)="actualizarLugar(lugarSeleccionado)">Guardar</button>
+  </div>
+  

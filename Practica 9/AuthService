@@ -1,0 +1,15 @@
+public class AuthService {
+
+
+    public void editarUsuario(String id, Usuario usuario) {
+        
+        Database.getInstance().actualizarUsuario(id, usuario);
+    }
+    
+    
+    public void eliminarUsuario(String id) {
+       
+        Database.getInstance().eliminarUsuario(id);
+    }
+    
+}

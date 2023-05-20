@@ -1,0 +1,39 @@
+import { Component } from '@angular/core';
+import { Lugar } from 'ruta/al/lugar'; 
+
+@Component({
+  selector: 'app-destinos',
+  templateUrl: './destinos.component.html',
+  styleUrls: ['./destinos.component.css']
+})
+export class DestinosComponent {
+
+  lugares: Lugar[] = [
+    { id: 1, nombre: 'Destino 1' },
+    { id: 2, nombre: 'Destino 2' },
+    { id: 3, nombre: 'Destino 3' }
+  ];
+
+  lugarSeleccionado: Lugar | null = null;
+
+  editarLugar(lugar: Lugar): void {
+    this.lugarSeleccionado = lugar;
+  }
+
+  actualizarLugar(lugarActualizado: Lugar): void {
+    if (this.lugarSeleccionado) {
+
+      this.lugarSeleccionado.nombre = lugarActualizado.nombre;
+
+      this.lugarSeleccionado = null;
+    }
+  }
+
+  eliminarLugar(lugar: Lugar): void {
+    const index = this.lugares.findIndex(l => l.id === lugar.id);
+    if (index !== -1) {
+      this.lugares.splice(index, 1);
+    
+    }
+  }
+}

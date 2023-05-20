@@ -1,0 +1,22 @@
+import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { GoogleMapsComponent } from 'ruta/al/google-maps.component';
+
+@Component({
+  selector: 'app-tu-componente',
+  templateUrl: './tu-componente.page.html',
+  styleUrls: ['./tu-componente.page.scss']
+})
+export class TuComponentePage {
+  constructor(private modalController: ModalController) {}
+
+  async mostrarMapaModal() {
+    const modal = await this.modalController.create({
+      component: GoogleMapsComponent,
+      cssClass: 'google-maps-modal',
+      // Otros parámetros de configuración del modal si es necesario
+    });
+
+    return await modal.present();
+  }
+}

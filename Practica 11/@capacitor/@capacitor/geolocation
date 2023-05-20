@@ -1,0 +1,8 @@
+import { Geolocation } from '@capacitor/geolocation';
+
+// Obtener la posición actual
+const position = await Geolocation.getCurrentPosition();
+
+// Obtener la latitud y longitud
+const latitude = position.coords.latitude;
+const longitude = position.coords.longitude;

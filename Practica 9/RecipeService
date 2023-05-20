@@ -1,0 +1,23 @@
+import { Injectable } from '@angular/core';
+import { Recipe } from './recipe';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RecipeService {
+  private recipes: Recipe[] = [
+    { id: 1, title: 'Tarta de manzana', description: 'Una deliciosa tarta de manzana', ingredients: ['manzanas', 'azúcar', 'harina', 'mantequilla'] },
+    { id: 2, title: 'Ensalada César', description: 'Una fresca ensalada con pollo y aderezo César', ingredients: ['lechuga', 'pollo', 'tomate', 'queso parmesano', 'crutones', 'aderezo César'] },
+    { id: 3, title: 'Spaghetti a la bolognesa', description: 'Un clásico plato italiano de pasta con salsa de tomate y carne', ingredients: ['spaghetti', 'carne picada', 'cebolla', 'ajo', 'tomate', 'vino tinto'] }
+  ];
+
+  constructor() { }
+
+  getRecipes(): Recipe[] {
+    return this.recipes;
+  }
+
+  getRecipeById(id: number): Recipe {
+    return this.recipes.find(recipe => recipe.id === id);
+  }
+}
