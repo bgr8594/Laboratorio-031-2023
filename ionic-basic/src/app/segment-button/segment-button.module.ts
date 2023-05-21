@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { GaleriaPageRoutingModule } from './galeria-routing.module';
+import { SegmentButtonPageRoutingModule } from './segment-button-routing.module';
 
-import { GaleriaPage } from './galeria.page';
+import { SegmentButtonPage } from './segment-button.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    GaleriaPageRoutingModule
+    SegmentButtonPageRoutingModule
   ],
-  declarations: [GaleriaPage]
+  declarations: [SegmentButtonPage]
 })
-export class GaleriaPageModule {}
+export class SegmentButtonPageModule {}

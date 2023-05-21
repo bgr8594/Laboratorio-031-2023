@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { GaleriaPage } from './galeria.page';
+import { SegmentButtonPage } from './segment-button.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: GaleriaPage
+    component: SegmentButtonPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class GaleriaPageRoutingModule {}
+export class SegmentButtonPageRoutingModule {}
