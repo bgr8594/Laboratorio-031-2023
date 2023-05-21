@@ -16,9 +16,11 @@ export const environment = {
   
     messagingSenderId: "32843246284",
   
-    appId: "1:32843246284:web:9d279479c9a3d66fd6f069",
+    appId: "1:32843246284:web:9d279479c9a3d66fd6f069"
   
-  }
+  },
+
+  apiKeyMaps: 'AIzaSyDa2ba8bnGz9I2nUNePAk6SxUwWO4neIBE'
   
 };
 
