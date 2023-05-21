@@ -29,7 +29,7 @@ export class ApiService {
     return this.http.delete(`${this.basePath}/${id}/delete`, {});
   }
 
-  editarLugarApi(id: string, lugar: Lugar): Observable<any>{
+  editarLugarApi(id: any, lugar: Lugar): Observable<any>{
     return this.http.put(`${this.basePath}/${id}/update`,lugar,{});
   }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-
 import { ApiService } from '../service/api.service';
 import { Lugar } from '../interface/interface/lugar';
 
@@ -11,7 +10,7 @@ import { Lugar } from '../interface/interface/lugar';
 })
 export class DestinosApiPage implements OnInit {
 
-  lugar: any;
+  lugar: Lugar = new Lugar();
   destinos: any[] = [];
   ionicForm: any;
   estado: string ="Alta destino";
