@@ -14,8 +14,8 @@ const routes: Routes = [
     }
     ,
     {
-      path: 'recetas',
-      loadChildren: () => import('../receta/receta.module').then(m=>m.RecetaPageModule)
+      path: 'galeria',
+      loadChildren: () => import('../galeria/galeria.module').then(m=>m.GaleriaPageModule)
     },
     {
       path: 'presupuesto',
@@ -23,14 +23,14 @@ const routes: Routes = [
     },
     {
       path:'',
-      redirectTo: '/tabs/alumnos',
+      redirectTo: '/main/tabs/alumnos',
       pathMatch: 'full'
     }
   ]
 },
 {
   path: '',
-  redirectTo: '/tabs/alumnos',
+  redirectTo: '/main/tabs/alumnos',
   pathMatch: 'full'
 }
 ];
