@@ -66,6 +66,10 @@ path: 'main',
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'segment-button',
+    loadChildren: () => import('./segment-button/segment-button.module').then( m => m.SegmentButtonPageModule)
+  },
 ];
 
 @NgModule({
