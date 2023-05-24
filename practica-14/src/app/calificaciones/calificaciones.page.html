@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Calificaciones</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label>
+                Materia:
+            </ion-label>
+            <ion-input type="text" [(ngModel)]="materia" placeholder="Ingrese la materia"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>
+                Calificacion:
+            </ion-label>
+            <ion-input type="text" [(ngModel)]="calificacions" placeholder="Ingrese la calificacion"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+              Aprobatorio:
+          </ion-label>
+             <ion-select [(ngModel)]="selectedValue" placeholder="Seleccione" multiple="false" (ionChange)="cambioValor(selectedValue)">
+                <ion-select-option [value]="option" *ngFor="let option of aprobatorio">{{option}}
+                </ion-select-option>
+            </ion-select>
+      </ion-item>
+        <ion-item>
+            <ion-button type="button" (click)="guardar()">{{estado}}</ion-button>
+            <ion-button *ngIf="estado==='actualizar'" type="button" (click)="cancelar()">Cancelar</ion-button>
+            <ion-text *ngIf="error" color="danger">
+                <h6>Debe ingresar materia, calificacion y aprobado para {{estado}}</h6>
+            </ion-text>
+        </ion-item>
+        <ion-item *ngIf="calificaciones.length>0">
+            <app-datos-calificacion [calificacionesList]="calificaciones" (eliminar)="eliminar($event)" (editar)="editar($event)"></app-datos-calificacion>
+        </ion-item>
+    </ion-list>
+  </ion-content>
