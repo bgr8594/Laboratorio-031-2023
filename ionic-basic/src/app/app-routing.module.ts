@@ -53,6 +53,10 @@ const routes: Routes = [
     loadChildren: () => import('./galeria/galeria.module').then( m => m.GaleriaPageModule)
   },
   {
+    path: 'segment-button',
+    loadChildren: () => import('./segment-button/segment-button.module').then( m => m.SegmentButtonPageModule)
+  }, 
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
