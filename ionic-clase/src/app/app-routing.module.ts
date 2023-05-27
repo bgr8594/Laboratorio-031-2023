@@ -65,7 +65,11 @@ const routes: Routes = [
 {
   path: 'register',
   loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-}
+},
+  {
+    path: 'segment-button',
+    loadChildren: () => import('./segment-button/segment-button.module').then( m => m.SegmentButtonPageModule)
+  }
 ];
 
 @NgModule({
