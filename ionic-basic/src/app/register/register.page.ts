@@ -3,9 +3,9 @@
   import { Router } from '@angular/router';
   import { User } from '../interface/user';
   import { MenuServiceService } from '../services/menu-service.service';
-import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
-import { ModalController } from '@ionic/angular';
-import { ModalErrorComponent } from '../componentes/modal-error/modal-error.component';
+  import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
+  import { ModalController } from '@ionic/angular';
+  import { ModalErrorComponent } from '../componentes/modal-error/modal-error.component';
 
   @Component({
     selector: 'app-register',
@@ -15,14 +15,14 @@ import { ModalErrorComponent } from '../componentes/modal-error/modal-error.comp
 export class RegisterPage implements OnInit {
 
     user: User = new User();
-  formRegister : any;
+    formRegister : any;
 
   constructor(
     private autSvc: AutService,
     private router: Router,
     private menuService: MenuServiceService,
-    private formBuilder: FormBuilder,
-    private modalCtrl: ModalController
+      private formBuilder: FormBuilder,
+      private modalCtrl: ModalController
   ) { 
     this.buildForm();
     this.formRegister.reset();
@@ -31,17 +31,17 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
-  submitForm(){
-    if(this.formRegister.valid){
-      this.user.email = this.formRegister.get('email').value;
-      this.user.password = this.formRegister.get('password').value;
-      this.onRegister();
+    submitForm(){
+      if(this.formRegister.valid){
+        this.user.email = this.formRegister.get('email').value;
+        this.user.password = this.formRegister.get('password').value;
+        this.onRegister();
+      }
     }
-  }
 
-  ionViewWillEnter(){
-    this.formRegister.reset();
-  }
+    ionViewWillEnter(){
+      this.formRegister.reset();
+    }
 
   async onRegister(){
     this.autSvc.onRegister(this.user).then(user=>{
@@ -62,27 +62,27 @@ export class RegisterPage implements OnInit {
       this.router.navigate(["/login"]);
     }
 
-  hasError: any = (controlName: string, errorName: string) => {
-		return !this.formRegister.controls[controlName].valid &&
-			this.formRegister.controls[controlName].hasError(errorName) &&
-			this.formRegister.controls[controlName].touched;
-	}
+    hasError: any = (controlName: string, errorName: string) => {
+      return !this.formRegister.controls[controlName].valid &&
+        this.formRegister.controls[controlName].hasError(errorName) &&
+        this.formRegister.controls[controlName].touched;
+    }
 
-  buildForm(){
-    this.formRegister = this.formBuilder.group({
-      email: new FormControl('',{validators: [Validators.email,Validators.required]}),
-      password: new FormControl('', {validators: [Validators.required, Validators.minLength(6), Validators.maxLength(6)]})
-    });
-  }
+    buildForm(){
+      this.formRegister = this.formBuilder.group({
+        email: new FormControl('',{validators: [Validators.email,Validators.required]}),
+        password: new FormControl('', {validators: [Validators.required, Validators.minLength(6), Validators.maxLength(6)]})
+      });
+    }
 
-  async openModal(user: any){
-    const modal = await this.modalCtrl.create({
-      component: ModalErrorComponent,
-      componentProps:{
-        error: 'Error al crear el usuario'
-      }
-    });
-    return await modal.present();
-  }
+    async openModal(user: any){
+      const modal = await this.modalCtrl.create({
+        component: ModalErrorComponent,
+        componentProps:{
+          error: 'Error al crear el usuario'
+        }
+      });
+      return await modal.present();
+    }
   
 }
