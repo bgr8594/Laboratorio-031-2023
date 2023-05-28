@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AutGuardGuard } from './services/aut-guard.guard';
+import {  AutGuardGuard } from './services/aut-guard.guard';
 
 const routes: Routes = [
   {
@@ -9,6 +9,7 @@ const routes: Routes = [
   },
   {
 path: 'main',
+// can activate se removio en una practica siguiuente y se agrego la ruta register y login
     children: [
       {
         path: 'presupuesto',
@@ -58,14 +59,14 @@ path: 'main',
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  },
-  {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
+    {
+      path: 'register',
+      loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+    },
+    {
+      path: 'login',
+      loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    },
   {
     path: 'segment-button',
     loadChildren: () => import('./segment-button/segment-button.module').then( m => m.SegmentButtonPageModule)

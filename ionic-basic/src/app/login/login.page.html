@@ -1,15 +1,17 @@
-<ion-header>
-  <ion-toolbar color="primary">
-      <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>Login</ion-title>
+    </ion-toolbar>
+    </ion-header>
+
+    <!-- el metodo de autenticacion mas basico -->
 
 <ion-content padding>
   <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate></form>
-  <ion-item>
-      <ion-label>
-          Email
-      </ion-label>
+    <ion-item>
+        <ion-label>
+            Email
+        </ion-label>
       <ion-input type="email" formControlName="email"></ion-input>
       <ion-text color="danger" *ngIf="hasError('email','email')">
           <h5>
@@ -22,9 +24,9 @@
       
   </ion-item>
   <ion-item>
-      <ion-label>
-          Password
-      </ion-label>
+        <ion-label>
+            Password
+        </ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
         <ion-text color="danger" 
         *ngIf="!ionicForm.valid && ionicForm.controls['password'].touched && !hasError('password','required')">

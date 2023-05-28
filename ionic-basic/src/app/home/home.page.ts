@@ -1,40 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AutService } from '../services/aut.service';
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { MenuServiceService } from '../services/menu-service.service';
+  import { Component, OnInit } from '@angular/core';
+  import { Router } from '@angular/router';
+  import { AutService } from '../services/aut.service';
+  import { onAuthStateChanged, signOut } from "firebase/auth";
+  import { MenuServiceService } from '../services/menu-service.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage  implements OnInit{
+  export class HomePage  implements OnInit{
 
-  isLoged : any = false;
+    isLoged : any = false;
 
-  constructor(
-    private authService: AutService,
-    private router: Router,
-    private menuService: MenuServiceService
+    constructor(
+      private authService: AutService,
+      private router: Router,
+      private menuService: MenuServiceService
 
-  ) {
-      onAuthStateChanged(this.authService.getStateAuth(), user=>{
-       if(user!=null && user != undefined){
-         this.isLoged = true;
-       }
-      });
-  }
+    ) {
+        onAuthStateChanged(this.authService.getStateAuth(), user=>{
+        if(user!=null && user != undefined){
+          this.isLoged = true;
+        }
+        });
+    }
 
   ngOnInit() {
 
 
-  }
-  onLogout(){
-      signOut(this.authService.getStateAuth()).then(response=>{
-        console.log("Logout!");
-        this.menuService.setTitle('login');
-        this.router.navigateByUrl('/login');
-      }).catch(error=>{    });
     }
+    onLogout(){
+        signOut(this.authService.getStateAuth()).then(response=>{
+          console.log("Logout!");
+          this.menuService.setTitle('login');
+          this.router.navigateByUrl('/login');
+        }).catch(error=>{    });
+      }
 
 }

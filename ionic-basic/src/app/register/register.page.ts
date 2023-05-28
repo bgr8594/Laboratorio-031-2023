@@ -1,20 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { AutService } from '../services/aut.service';
-import { Router } from '@angular/router';
-import { User } from '../interface/user';
-import { MenuServiceService } from '../services/menu-service.service';
+  import { Component, OnInit } from '@angular/core';
+  import { AutService } from '../services/aut.service';
+  import { Router } from '@angular/router';
+  import { User } from '../interface/user';
+  import { MenuServiceService } from '../services/menu-service.service';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { ModalErrorComponent } from '../componentes/modal-error/modal-error.component';
 
-@Component({
-  selector: 'app-register',
-  templateUrl: './register.page.html',
-  styleUrls: ['./register.page.scss'],
-})
+  @Component({
+    selector: 'app-register',
+    templateUrl: './register.page.html',
+    styleUrls: ['./register.page.scss'],
+  })
 export class RegisterPage implements OnInit {
 
-  user: User = new User();
+    user: User = new User();
   formRegister : any;
 
   constructor(
@@ -57,10 +57,10 @@ export class RegisterPage implements OnInit {
     })
 
   }
-  onLogin(){
-    this.menuService.setTitle("login");
-    this.router.navigate(["/login"]);
-  }
+    onLogin(){
+      this.menuService.setTitle("login");
+      this.router.navigate(["/login"]);
+    }
 
   hasError: any = (controlName: string, errorName: string) => {
 		return !this.formRegister.controls[controlName].valid &&

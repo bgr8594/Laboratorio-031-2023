@@ -3,13 +3,14 @@
       <ion-title>register</ion-title>
   </ion-toolbar>
 </ion-header>
+<!-- metoddo basico -->
 
 <ion-content padding>
   <form [formGroup]="formRegister" (ngSubmit)="submitForm()" novalidate>
     <ion-item>
-        <ion-label>
-            Email
-        </ion-label>
+            <ion-label>
+                Email
+            </ion-label>
         <ion-input type="email" formControlName="email"></ion-input>
         <ion-text color="danger" *ngIf="hasError('email','email')">
             <h5>
@@ -21,11 +22,11 @@
         </ion-text>
     </ion-item>
     <ion-item>
-        <ion-label>
-            Password
-        </ion-label>
-        <ion-input  type="password" formControlName="password"></ion-input>
-        <ion-text color="danger" 
+            <ion-label>
+                Password
+            </ion-label>
+            <ion-input  type="password" formControlName="password"></ion-input>
+            <ion-text color="danger" 
     *ngIf="!formRegister.valid && formRegister.controls['password'].touched && !hasError('password','required')">
         <h5>
             Maximo 6 caracteres

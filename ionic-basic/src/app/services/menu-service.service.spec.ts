@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
+  import { TestBed } from '@angular/core/testing';
 
-import { MenuServiceService } from './menu-service.service';
+  import { MenuServiceService } from './menu-service.service';
 
-describe('MenuServiceService', () => {
-  let service: MenuServiceService;
+  describe('MenuServiceService', () => {
+    let service: MenuServiceService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(MenuServiceService);
+    beforeEach(() => {
+      TestBed.configureTestingModule({});
+      service = TestBed.inject(MenuServiceService);
+    });
+
+    it('should be created', () => {
+      expect(service).toBeTruthy();
+    });
   });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
