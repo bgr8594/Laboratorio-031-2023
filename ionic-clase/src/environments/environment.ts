@@ -8,6 +8,7 @@ export const environment = {
     storageBucket: "prueba-lab01.appspot.com",
     messagingSenderId: "671809710075",
     appId: "1:671809710075:web:d34b23d3ed9e770c5bcd5e"
-  } 
+  },
+  apiKeyMaps : 'AIzaSyCFC8fIeMmdOcEW0oQveQg1TKKciW3O_v4'
 };
 
