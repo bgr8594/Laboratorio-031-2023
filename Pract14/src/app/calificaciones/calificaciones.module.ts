@@ -15,6 +15,5 @@ import { CalificacionesPage } from './calificaciones.page';
     IonicModule,
     CalificacionesPageRoutingModule
   ],
-  declarations: [CalificacionesPage]
 })
 export class CalificacionesPageModule {}
