@@ -34,10 +34,10 @@ path: 'main',
           path: 'detalle-receta',
           loadChildren: () => import('./detalle-receta/detalle-receta.module').then( m => m.DetalleRecetaPageModule),
         },
-      {
-        path: 'tabs',
-        loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule),
-      },
+        {
+          path: 'tabs',
+          loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule),
+        },
       {
         path: 'destinos',
         loadChildren: () => import('./destinos/destinos.module').then( m => m.DestinosPageModule),

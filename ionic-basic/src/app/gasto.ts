@@ -1,2 +1,2 @@
-export interface Gasto {
-}
+  export interface Gasto {
+  }
