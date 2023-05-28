@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Calificaciones
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <form [formGroup]="calificacionForm" (ngSubmit)="agregarCalificacion()">
+          <ion-item>
+            <ion-label position="floating">Materia</ion-label>
+            <ion-input formControlName="materia" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Calificación</ion-label>
+            <ion-input formControlName="calificacion" type="number"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Aprobado</ion-label>
+            <ion-checkbox formControlName="aprobado"></ion-checkbox>
+          </ion-item>
+
+          <ion-button expand="full" type="submit" [disabled]="calificacionForm.invalid">
+            Agregar Calificación
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-list>
+          <ion-item-sliding *ngFor="let calificacion of calificacionesService.calificaciones; let i = index">
+            <ion-item>
+              <ion-label>{{ calificacion.materia }}</ion-label>
+              <ion-buttons slot="end">
+                <ion-button (click)="editarCalificacion(i)">
+                  <ion-icon name="create-outline"></ion-icon>
+                </ion-button>
+                <ion-button color="danger" (click)="borrarCalificacion(i)">
+                  <ion-icon name="trash-outline"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-item>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
