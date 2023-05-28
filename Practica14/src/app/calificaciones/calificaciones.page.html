@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Calificaciones
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="calificacionForm" (ngSubmit)="altaCalificacion()">
+    <ion-item>
+      <ion-label position="floating">Materia</ion-label>
+      <ion-input formControlName="materia" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Calificacion</ion-label>
+      <ion-input type="number" formControlName="calificacion" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Resultado</ion-label>
+      <ion-checkbox formControlName="aprobado"></ion-checkbox>
+    </ion-item>
+    <ion-button expand="full" type="submit" [disabled]="calificacionForm.invalid">Agregar</ion-button>
+  </form>
+
+  <ion-grid *ngIf="calificaciones.length > 0 || alumnosiniciales.length > 0">
+    <ion-row>
+      <ion-col>Materia</ion-col>
+      <ion-col>Calificacion</ion-col>
+      <ion-col>Resultado</ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    <ion-row *ngFor="let calificacion of calificaciones; let i = index">
+      <ion-col>{{ calificacion.materia }}</ion-col>
+      <ion-col>{{ calificacion.calificacion }}</ion-col>
+      <ion-col>{{ calificacion.aprobado ? 'Aprobado' : 'Reprobado' }}</ion-col>
+      <ion-col>
+        <ion-button (click)="editarCalificacion(i)">Editar</ion-button>
+        <ion-button (click)="borrarCalificacion(i)">Borrar</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let alumno of alumnosiniciales">
+      <ion-col>{{ alumno.materia }}</ion-col>
+      <ion-col>{{ alumno.calificacion }}</ion-col>
+      <ion-col>{{ alumno.aprobado ? 'Aprobado' : 'Reprobado' }}</ion-col>
+      <ion-col>
+        <ion-button disabled>Editar</ion-button>
+        <ion-button disabled>Borrar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
