@@ -1,0 +1,26 @@
+<ion-grid *ngIf="calificacionlist.length>0">
+  <ion-row>
+      <ion-col size="6">Matricula</ion-col>
+      <ion-col size="6">Nombre</ion-col>
+      <ion-col size="6">Materia</ion-col>
+      <ion-col size="6">Promedio</ion-col>
+      <ion-col size="2"></ion-col>
+      <ion-col size="2"></ion-col>
+  </ion-row>
+  <ion-row *ngFor="let Calificacion of calificacionlist">
+      <ion-col size="4">
+          {{Calificacion.Matricula}}
+      </ion-col>
+      <ion-col size="4">
+          {{Calificacion.Nombre}}
+      </ion-col>
+      <ion-col size="4">
+        {{Calificacion.Materia}}
+    </ion-col>
+    <ion-col size="4">
+      {{Calificacion.Promedio}}
+  </ion-col>
+      <ion-col size="3" (click)="editar.emit(alumno)"><a>Editar</a></ion-col>
+      <ion-col size="3" (click)="eliminar.emit(alumno.id)"><a>X</a></ion-col>
+  </ion-row>
+</ion-grid>
