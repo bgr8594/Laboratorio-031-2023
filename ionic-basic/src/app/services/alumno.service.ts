@@ -1,44 +1,44 @@
-import { Injectable } from '@angular/core';
-import { Alumno } from '../interface/alumno'
+  import { Injectable } from '@angular/core';
+  import { Alumno } from '../interface/alumno'
 
-@Injectable({
-  providedIn: 'root'
-})
-export class AlumnoService {
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class AlumnoService {
 
-  private alumnos: Alumno[]= [];
+    private alumnos: Alumno[]= [];
 
-  constructor() { }
+    constructor() { }
 
-  public agregarAlumno(alumno: Alumno){
-    if(this.alumnos.length>0){
-      alumno.id = this.alumnos.length + 1 ;
-    } else {
-      alumno.id = 1;
+    public agregarAlumno(alumno: Alumno){
+      if(this.alumnos.length>0){
+        alumno.id = this.alumnos.length + 1 ;
+      } else {
+        alumno.id = 1;
+      }
+      this.alumnos.push(alumno);
     }
-    this.alumnos.push(alumno);
-  }
 
-  public borrarAlumno(id: number){
-    this.alumnos =
-    this.alumnos.filter((al=>al.id!=id));
-  }
+    public borrarAlumno(id: number){
+      this.alumnos =
+      this.alumnos.filter((al=>al.id!=id));
+    }
 
-  public getAlumos(): Alumno[]{
-    return this.alumnos;
-  }
+    public getAlumos(): Alumno[]{
+      return this.alumnos;
+    }
 
-  public setAlumnos(alumnos: Alumno[]){
-    this.alumnos = alumnos;
-  }
+    public setAlumnos(alumnos: Alumno[]){
+      this.alumnos = alumnos;
+    }
 
-  public actualiza(alumno: Alumno): Alumno[]{
-    this.alumnos.filter(
-      (al)=>al.id==alumno.id
-    ).map(al=>{
-      al.matricula=alumno.matricula;
-      al.nombre = alumno.nombre;
-    });
-    return this.alumnos;
+    public actualiza(alumno: Alumno): Alumno[]{
+      this.alumnos.filter(
+        (al)=>al.id==alumno.id
+      ).map(al=>{
+        al.matricula=alumno.matricula;
+        al.nombre = alumno.nombre;
+      });
+      return this.alumnos;
+    }
   }
-}

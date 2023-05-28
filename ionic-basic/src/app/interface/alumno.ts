@@ -1,5 +1,5 @@
-export interface Alumno {
-  matricula: string;
-  nombre: string;
-  id?: number;
-}
+  export interface Alumno {
+    matricula: string;
+    nombre: string;
+    id?: number;
+  }
