@@ -10,6 +10,7 @@ const routes: Routes = [
   {
 path: 'main',
 // can activate se removio en una practica siguiuente y se agrego la ruta register y login
+// se elimino la ruta destinos fuera de children en una practica futura
     children: [
       {
         path: 'presupuesto',
