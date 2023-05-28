@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
+  import { TestBed } from '@angular/core/testing';
 
-import { EnvioReceptorService } from './envio-receptor.service';
+  import { EnvioReceptorService } from './envio-receptor.service';
 
-describe('EnvioReceptorService', () => {
-  let service: EnvioReceptorService;
+  describe('EnvioReceptorService', () => {
+    let service: EnvioReceptorService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(EnvioReceptorService);
+    beforeEach(() => {
+      TestBed.configureTestingModule({});
+      service = TestBed.inject(EnvioReceptorService);
+    });
+
+    it('should be created', () => {
+      expect(service).toBeTruthy();
+    });
   });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
